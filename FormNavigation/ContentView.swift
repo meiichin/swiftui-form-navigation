@@ -13,41 +13,75 @@ struct ContentView: View {
             Form{
                 // Section Photo Profile
                 Section(){
-                    HStack{
-                        Image("me")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        //Name and status
-                        VStack(alignment:.leading){
-                            Text("Yuu Dev").font(.headline)
-                            Text("iOS Developer").font(.caption)
+                    NavigationLink(destination: Maintenance()){
+                        HStack{
+                            Image("me")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                            //Name and status
+                            VStack(alignment:.leading){
+                                Text("Yuu Dev").font(.headline)
+                                Text("iOS Developer").font(.caption)
+                            }
                         }
+                        .padding(.top,10)
+                        .padding(.bottom,10)
                     }
-                    .padding(.top,10)
-                    .padding(.bottom,10)
                 }
                 
                 // Section general Setting
                 Section(header: Text("General Setting")){
-                    HStack(spacing: 20){
-                        Image(systemName: "star.fill")
-                            .frame(width: 35, height: 35)
-                            .background(Color.orange)
-                            .cornerRadius(10)
-                            .foregroundColor(Color.white)
-                        
-                        Text("Stared Messages")
+                    NavigationLink(destination: Maintenance()){
+                        HStack(spacing: 20){
+                            Image(systemName: "star.fill")
+                                .frame(width: 35, height: 35)
+                                .background(Color.orange)
+                                .cornerRadius(10)
+                                .foregroundColor(Color.white)
+                            
+                            Text("Stared Messages")
+                        }
                     }
                     
-                    HStack(spacing: 20){
-                        Image(systemName: "tv")
-                            .frame(width: 35, height: 35)
-                            .background(Color.green)
-                            .cornerRadius(10)
-                            .foregroundColor(Color.white)
-                        
-                        Text("Whats App Web/Desktop")
+                    NavigationLink(destination: Maintenance()){
+                        HStack(spacing: 20){
+                            Image(systemName: "tv")
+                                .frame(width: 35, height: 35)
+                                .background(Color.green)
+                                .cornerRadius(10)
+                                .foregroundColor(Color.white)
+                            
+                            Text("Whats App Web/Desktop")
+                        }
+                    }
+                }
+                
+                // Section general Setting
+                Section(header: Text("Account Setting")){
+                    NavigationLink(destination: Maintenance()){
+                        HStack(spacing: 20){
+                            Image(systemName: "person")
+                                .frame(width: 35, height: 35)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                                .foregroundColor(Color.white)
+                            
+                            Text("Account")
+                        }
+                    }
+                    
+                    
+                    NavigationLink(destination: Maintenance()){
+                        HStack(spacing: 20){
+                            Image(systemName: "phone.circle")
+                                .frame(width: 35, height: 35)
+                                .background(Color.green)
+                                .cornerRadius(10)
+                                .foregroundColor(Color.white)
+                            
+                            Text("Chat")
+                        }
                     }
                 }
             }.navigationBarTitle("Setting")
@@ -58,5 +92,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct Maintenance : View {
+    var body: some View{
+        Text("Under Construction")
     }
 }
